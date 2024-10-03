@@ -6,9 +6,7 @@ async function main() {
 
   const lockedAmount = ethers.parseEther("0.001");
 
-  const lock = await ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
+  const lock = await ethers.deployContract("OnlyAdmin");
 
   await lock.waitForDeployment();
 
@@ -25,3 +23,8 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+
+
+/**
+ * 0x3e2118689cE18DB6B9e9966faa3018a7A6D5D79D
+ */
